@@ -19,8 +19,11 @@
         
 <img src="<%= (String) request.getContextPath() + "/images/" + request.getAttribute("img") %>"/>
         
-            <label for="codigo">Código:</label>
-            <input class="form-control" type="text" id="codigo" name="codigo" readonly value=""/>
+            <form action="RecuperarImagem" method="post">
+                <label for="codigo">Código:</label>
+                 <input class="form-control" type="text" id="codigo" name="codigo"/>
+                <button class="btn btn-success" type="submit">Pesquisar imagem</button>
+        </form>
                 
             <a href="index.jsp">Voltar</a>
     </body>
