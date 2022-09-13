@@ -48,7 +48,8 @@ public class FileUploadServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         try ( PrintWriter out = response.getWriter()) {
-
+            
+            //Mudar o caminho para o local da pasta q o servidor esta rodadando
             String caminho = "C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/web/images" + "/";
 
             File diretorio = new File(caminho);
