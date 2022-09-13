@@ -2,11 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/src/java/dao/ImgDAO.java</file>
-            <file>file:/C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/src/java/model/Img.java</file>
-            <file>file:/C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/web/ImgView.jsp</file>
-            <file>file:/C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/src/java/fileserveletapp/RecuperarImagem.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

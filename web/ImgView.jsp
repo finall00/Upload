@@ -10,17 +10,17 @@
     <body>
         <h1>Era pra ter uma imagen aqui</h1>
 
-        <h1 value="${img.nomeImg}"></h1>
+       
         
 <!--   Isso recupera a imagem pelo caminho que a aplicação roda, porem tem que colocar o nome da imagem
 <img src="<%= (String) request.getContextPath() + "/images/c.png" %>" />-->
         
         
         
-        <img src="<%= (String) request.getContextPath() + "/images" + "/${img.nomeImg}"%>"/>
+<img src="<%= (String) request.getContextPath() + "/images/" + request.getAttribute("img") %>"/>
         
             <label for="codigo">Código:</label>
-            <input class="form-control" type="text" id="codigo" name="codigo" readonly value="${img.imagem}"/>
+            <input class="form-control" type="text" id="codigo" name="codigo" readonly value=""/>
                 
             <a href="index.jsp">Voltar</a>
     </body>

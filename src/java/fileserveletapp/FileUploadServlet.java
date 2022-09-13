@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import model.Img;
 
 @MultipartConfig
 @WebServlet(name = "FileUploadServlet", urlPatterns = {"/FileUploadServlet"})
@@ -81,6 +82,8 @@ public class FileUploadServlet extends HttpServlet {
                 
                                 
                 request.getRequestDispatcher("ImgView.jsp").forward(request, response);
+                
+                
 
             } catch (SQLException | ClassNotFoundException | FileNotFoundException ex) {
                 Logger.getLogger(FileUploadServlet.class.getName()).log(Level.SEVERE, null, ex);

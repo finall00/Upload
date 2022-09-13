@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Img;
 
 /**
  *
@@ -28,8 +29,9 @@ public class RecuperarImagem extends HttpServlet {
             
             ImgDAO ImgDAO = new ImgDAO();
             
-            request.setAttribute("img", ImgDAO.acharImage(codigoImg));
             
+           Img img =(Img) ImgDAO.acharImage(codigoImg);
+           request.setAttribute("img", img.getNomeImg());
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
