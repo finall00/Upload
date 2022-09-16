@@ -8,19 +8,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Era pra ter uma imagen aqui</h1>
-
-       
         
-<!--   Isso recupera a imagem pelo caminho que a aplicação roda, porem tem que colocar o nome da imagem
-<img src="<%= (String) request.getContextPath() + "/images/c.png" %>" />-->
-        
-        
-        
-<img src="<%= (String) request.getContextPath() + "/images/" + request.getAttribute("img") %>"/>
+        <!<!-- Essa parte e responsavel por recuperar a imagem apartir do caminho de contexto, com o nome da imagem -->
+              <img src="<%= (String) request.getContextPath() + "/imagens/" + request.getAttribute("img") %>"/>
         
             <form action="RecuperarImagem" method="post">
-                <label for="codigo">Código:</label>
+                <label for="codigo">Código da imagem:</label>
                  <input class="form-control" type="text" id="codigo" name="codigo"/>
                 <button class="btn btn-success" type="submit">Pesquisar imagem</button>
         </form>

@@ -2,7 +2,6 @@ package fileserveletapp;
 
 import dao.ImgDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,9 +28,10 @@ public class RecuperarImagem extends HttpServlet {
             
             ImgDAO ImgDAO = new ImgDAO();
             
-            
+            //pega o codigo da imagem pesquisa ela a resposta coloca dentro de img e manda para a pagina web
            Img img =(Img) ImgDAO.acharImage(codigoImg);
            request.setAttribute("img", img.getNomeImg());
+           
         } catch (SQLException | ClassNotFoundException ex) {
             request.setAttribute("mensagem", ex.getMessage());
         }
@@ -47,6 +47,13 @@ public class RecuperarImagem extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * 
+     * чертовски любопытно, это не важно и просто бесполезная пасхалка, помимо того, 
+     * что я потратил много времени на этот бесполезный файл или почти и сейчас,
+     * как в 3 часа ночи, я делаю эти комментарии, чтобы не забыть и если
+     * кто-то хочет использовать код,
+     * чтобы понять
+     * 
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

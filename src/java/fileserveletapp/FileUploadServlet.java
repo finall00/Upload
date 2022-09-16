@@ -24,8 +24,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import model.Img;
+//n sei pra q metade dessas importação serve 
 
+//o @multiparteConfig é o mais importante pra funcionar então n esquece de colocar animal
 @MultipartConfig
 @WebServlet(name = "FileUploadServlet", urlPatterns = {"/FileUploadServlet"})
 public class FileUploadServlet extends HttpServlet {
@@ -50,20 +51,23 @@ public class FileUploadServlet extends HttpServlet {
         try ( PrintWriter out = response.getWriter()) {
             
             //Mudar o caminho para o local da pasta q o servidor esta rodadando
-            String caminho = "C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/web/images" + "/";
-
+            String caminho = "C:/Users/Finall00/Documents/NetBeansProjects/FileUpload/web/imagens" + "/";
+            //Ve se a pasta existe se não existe ele cria
             File diretorio = new File(caminho);
             if (!diretorio.exists()) {
                 diretorio.mkdir();
             }
+            
 
-            Part filePart = request.getPart("file");
+           try { 
+               Part filePart = request.getPart("file");
             String filename = filePart.getSubmittedFileName();
 
             OutputStream os = null;
             InputStream is = null;
 
-            try {
+            
+                //pega o nome junta com  o caminho e cadastra
                 File filePath = new File(caminho, filename);
 
                 os = new FileOutputStream(filePath);
@@ -74,30 +78,28 @@ public class FileUploadServlet extends HttpServlet {
                 //ImgDAO.Cadastra(filePath.getPath(), filename);
                  imgDAO.Cadastra(filePath.getPath(), filePath.getName());
               
-
+                //não me pergunte n sei pra que serve isso o mateus falo q pode ser pra dar tempo de execução mas, ele n tem certeza
                 int read = 0;
                 while ((read = is.read()) != -1) {
                     os.write(read);
 
                 }
-                
-                                
+                              
                 request.getRequestDispatcher("ImgView.jsp").forward(request, response);
-                
-                
-
+ 
             } catch (SQLException | ClassNotFoundException | FileNotFoundException ex) {
                 Logger.getLogger(FileUploadServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (FileNotFoundException e) {
             out.print(e);
         }
-           
+                request.getRequestDispatcher("ImgView.jsp").forward(request, response);
     }
 
     @Override
     public String getServletInfo() {
         return "Short description";
     }
-
+/*
+    */
 }
